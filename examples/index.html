@@ -13,6 +13,7 @@
         <input type="button" id="imgbut" value="Images"/>
         <input type="button" id="collection" value="Snow Collection"/>
         <input type="button" id="deviceorientation" value="Deviceorientation"/>
+        <input type="button" id="slope" value="Slope"/>
     <div class="collectonme">
         <p>Collect on meeeeee!!!</p>
     </div>
@@ -92,6 +93,13 @@
                 $('.collectonme').hide();
                 document.body.className  = "darkBg";
                 $(document).snowfall({deviceorientation : true, round : true, minSize: 5, maxSize:8});
+            });
+
+            $("#slope").click(function(){
+                $(document).snowfall('clear');
+                $('.collectonme').hide();
+                document.body.className  = "darkBg";
+                $(document).snowfall({slope:1});
             });
 
         });

@@ -50,7 +50,8 @@
     minSpeed,
     maxSpeed,
     round,      true or false, makes the snowflakes rounded if the browser supports it.
-    shadow      true or false, gives the snowflakes a shadow if the browser supports it.
+    shadow,     true or false, gives the snowflakes a shadow if the browser supports it.
+    slope       (int), make the snowflakes tilt.
 
     Example Usage :
     $(document).snowfall({flakeCount : 100, maxSpeed : 10});
@@ -100,7 +101,7 @@ if (!Date.now)
             defaults = {
                 flakeCount : 35,
                 flakeColor : '#ffffff',
-				flakePosition: 'absolute',
+                flakePosition: 'absolute',
                 flakeIndex: 999999,
                 minSize : 1,
                 maxSize : 2,
@@ -108,6 +109,7 @@ if (!Date.now)
                 maxSpeed : 5,
                 round : false,
                 shadow : false,
+                slope: 0,
                 collection : false,
                 collectionHeight : 40,
                 deviceorientation : false
@@ -179,6 +181,10 @@ if (!Date.now)
 
                     if (doRatio === false) {
                         this.x += Math.cos(this.step);
+                        if (options.slope) {
+                          this.x -= options.slope;
+                        } else {
+                        }
                     } else {
                         this.x += (doRatio + Math.cos(this.step));
                     }
